@@ -49,6 +49,47 @@ public class MainActivity extends AppCompatActivity {
         Button div=findViewById(R.id.div);
         Button equal=findViewById(R.id.equal);
         Button dian=findViewById(R.id.button_dian);
+        Button button_fu=findViewById(R.id.button_fu);
+        final TextView edittext=findViewById(R.id.editText);
+        button_fu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String str=edittext.getText().toString();
+                //情况1： 1+(-2)
+                String ee=str.substring(str.length()-1,str.length());
+                if(ee.equals("+")){
+                    edittext.setText(String.valueOf(str.substring(0,str.length()-1)+"-"));
+                }
+                //情况2： 1-(-2)
+                else if(ee.equals("-")){
+                    edittext.setText(String.valueOf(str.substring(0,str.length()-1)+"+"));
+                }
+                //情况3： 1+2*(-3)
+                else {
+                    char chars[]=str.toCharArray();
+                    int i,len=str.length();
+                    int falt=0;
+                    for(i=len-2;i>=0;i--){
+                        if(chars[i]=='+'){
+                            falt=1;
+                            break;
+                        }
+                        else if(chars[i]=='-'){
+                            falt=2;
+                            break;
+                        }
+                    }
+                    if(falt==1)
+                    {
+                        edittext.setText(str.substring(0,i)+"-"+str.substring(i+1,len));
+                    }
+                    else if(falt==2){
+                        edittext.setText(str.substring(0,i)+"+"+str.substring(i+1,len));
+                    }
+
+                }
+            }
+        });
         dian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -164,7 +205,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        final TextView edittext=findViewById(R.id.editText);
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

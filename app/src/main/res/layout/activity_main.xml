@@ -68,7 +68,7 @@
                 android:textSize="24sp" />
 
             <Button
-                android:id="@+id/button35"
+                android:id="@+id/button_fu"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:background="@drawable/btn_circle"
