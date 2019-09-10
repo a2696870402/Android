@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">计算器</string>
+    <string name="zero">0</string>
+    <string name="er">二进制</string>
+    <string name="ba">八进制</string>
+    <string name="shiliu">十六进制</string>
+    <string name="zhuan">转为整数</string>
+    <string name="sin">sin</string>
+    <string name="cos">cos</string>
+    <string name="tan">tan</string>
+    <string name="return0">计算器</string>
+</resources>
